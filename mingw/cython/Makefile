@@ -1,5 +1,6 @@
 
-PYTHONPATH = D:/py38
+# PYTHONPATH = D:/py38
+PYTHONPATH = D:/python
 INC = $(PYTHONPATH)/include
 LIBS = $(PYTHONPATH)/libs
 LIB = python38

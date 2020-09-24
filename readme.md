@@ -2,9 +2,10 @@
 
 ## ctypes
 
-ctypes实现的效果，主要是dll与so
+通过ctypes调用动态链接库的形式实现Python调用C
+
 
 ## mingw
 
-使用mingw编译拓展，主要是使用gcc，包括Cython
+使用mingw编译Python的拓展，使用gcc而不是MSBuild，包括Cython
 
