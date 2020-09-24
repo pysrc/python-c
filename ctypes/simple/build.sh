@@ -1,0 +1,1 @@
+gcc pydll.c -shared -o pydll.so

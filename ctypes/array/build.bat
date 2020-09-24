@@ -1,0 +1,1 @@
+gcc -DWINDOWS array.c -shared -o array.dll

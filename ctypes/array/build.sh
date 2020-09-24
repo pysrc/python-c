@@ -1,0 +1,1 @@
+gcc array.c -shared -o array.so

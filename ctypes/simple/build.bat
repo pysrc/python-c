@@ -1,0 +1,1 @@
+gcc -DWINDOWS pydll.c -shared -o pydll.dll
