@@ -1,0 +1,13 @@
+
+INC = /usr/include/python3.8
+
+calc.so: calc.o
+	gcc -shared -o calc.so calc.o
+
+calc.o: calc.c
+	gcc -o calc.o -c calc.c -I $(INC)
+
+
+.PHONY: clean
+clean:
+	rm -rf *.so *.o

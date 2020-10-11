@@ -10,7 +10,7 @@ target = so
 def = 
 endif
 
-$(target): pydll.o isme.o
+pydll.$(target): pydll.o isme.o
 	gcc $(def) pydll.o isme.o -shared -o pydll.$(target)
 
 isme.o: isme.c isme.h mysys.h

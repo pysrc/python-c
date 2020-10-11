@@ -1,7 +1,11 @@
 import ctypes
+import platform
 
-dll = ctypes.CDLL("./array.dll")
-
+dll = None
+if platform.system() == "Windows":
+    dll = ctypes.CDLL("./array.dll")
+elif platform.system() == "Linux":
+    dll = ctypes.CDLL("./array.so")
 dll.sum.argtypes = (ctypes.POINTER(ctypes.c_int), ctypes.c_int)
 dll.sum.restype = ctypes.c_int
 

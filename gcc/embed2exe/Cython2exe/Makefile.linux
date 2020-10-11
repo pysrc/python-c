@@ -1,0 +1,30 @@
+
+INC = /usr/include/python3.8
+LIB = python3.8
+
+.PHONY: target
+target: cydemo.so hello
+
+# exe main 打包主函数时不需要动态链接库pyd/dll
+hello: hello.o
+	gcc -o hello hello.o -l $(LIB)
+
+hello.o: hello.c
+	gcc -fPIC -o hello.o -c hello.c -I $(INC)
+
+hello.c: hello.py
+	cython --embed -3 hello.py -o hello.c
+
+# cydemo 动态链接库打包
+cydemo.so: cydemo.o
+	gcc -shared -o cydemo.so cydemo.o
+
+cydemo.o: cydemo.c
+	gcc -fPIC -o cydemo.o -c cydemo.c -I $(INC)
+
+cydemo.c: cydemo.pyx
+	cython -3 cydemo.pyx -o cydemo.c
+
+.PHONY: clean
+clean:
+	rm -rf hello *.o *.so *.c

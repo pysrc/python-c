@@ -1,0 +1,14 @@
+
+INC = /usr/include/python3.8
+LIB = python3.8
+
+main: main.o
+	gcc -o main main.o -l $(LIB)
+
+main.o: main.c
+	gcc -o main.o -c main.c -I $(INC)
+
+
+.PHONY: clean
+clean:
+	rm -rf main *.o
